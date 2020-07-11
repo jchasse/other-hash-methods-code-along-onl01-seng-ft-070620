@@ -9,7 +9,15 @@ require 'pry'
 # }
 
 def get_the_min(groceries)
+  min_item = nil
   groceries.each do |type, list|
-    return list.min
+    if min_item == nil
+      list.min = min_item
+    else
+      if min_item > list.min
+        list.min = min_item
+      end
+    end
   end
+  return min_item
 end
